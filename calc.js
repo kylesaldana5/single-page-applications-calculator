@@ -43,20 +43,29 @@ function divides(num1, num2) {
       return func(num1, num2);
   }
 
-// print to dom
-
-function print(vaule) {
-    answer.innerHTML = vaule;
-}
-
-// select function and print
-function funcPrint(p) {
-    let num1 = inputOne.vaule;
-    let num2 = inputTwo.vaule;
-    let total = calc(+num1, +num2, p)
-    print(total);
-}
 
 button.addEventListener("click", () => {
-    funcPrint(event.target.id);
+    let input = event.target.id;
+    let operation;
+    switch (input){
+        case "add":
+        operation = addition
+        break;
+        case "sub":
+        operation = subtracts
+        break;
+        case "mult":
+        operation = multiplies
+        break;
+        case "div":
+        operation = divides
+        break;
+    }
+    console.log(input);
+    let result = calc(+inputOne.value, +inputTwo.value, operation);
+    printTODOM(result);
 })
+
+function printTODOM(value) {
+    answer.innerHTML = value;
+}
